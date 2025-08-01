@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Girl Friend Day</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'fresh lychee';
+      background: linear-gradient(to top, #cceeff, #e6f7ff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    h1 {
+      color: #3582af;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #aaa;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #2a6f97;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .heart {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: pink;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: fall 2s linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Masukin nama kamu dulu dong bro😋</h1>
+  <input type="text" id="nameInput" placeholder="Contoh: mala">
+  <button onclick="nextPage()">Lanjut</button>
+
+  <script>
+    function nextPage() {
+      const name = document.getElementById("nameInput").value.trim();
+      if (name !== "") {
+        localStorage.setItem("girlName", name);
+        window.location.href = "page2.html";
+      } else {
+        alert("tulis dulu dong namanya 😊");
+      }
+    }
+
+    document.addEventListener("mousemove", function(e) {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = e.pageX + "px";
+      heart.style.top = e.pageY + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 2000);
+    });
+<audio autoplay loop>
+    <source src="taylor swift - mine (taylor's version) (sped up)  accelo-sound.mp3" type="audio/mpeg">
+  </audio>
+     <div class="slide active" id="slide1">
+    <h1>Isi Slide Pertama</h1>
+    <button onclick="nextSlide()">Lanjut</button>
+  </div>
+
+  <div class="slide" id="slide2">
+    <h1>Isi Slide Kedua</h1>
+    <button onclick="nextSlide()">Lanjut</button>
+  </div>
+
+  <div class="slide" id="slide3">
+    <h1>Isi Slide Kedua</h1>
+    <button onclick="nextSlide()">Lanjut</button>
+  </div>
+
+  <div class="slide" id="slide4">
+    <h1>Isi Slide Kedua</h1>
+    <button onclick="nextSlide()">Lanjut</button>
+  </div>
+
+  <!-- Script -->
+  <script>
+    let current = 1;
+    function nextSlide() {
+      document.getElementById('slide' + current).classList.remove('active');
+      current++;
+      document.getElementById('slide' + current).classList.add('active');
+      document.getElementById('slide' + current).classList.add('active');
+      document.getElementById('slide' + current).classList.add('active');
+    }
+  </script>
+</body>
+</html>
